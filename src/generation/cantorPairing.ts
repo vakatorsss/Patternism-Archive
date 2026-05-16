@@ -22,3 +22,10 @@ export function cantorPairingAddress(address: BookAddress): number {
   paired = cantorPair(paired, line);
   return paired;
 }
+
+/**
+ * Format Cantor pairing number without exponents or comma separators
+ */
+export function formatCantorPairing(num: number): string {
+  return Math.floor(num).toString();
+}
