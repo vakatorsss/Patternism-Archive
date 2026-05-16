@@ -68,10 +68,11 @@ export function TextPage() {
               <div className="mono-ritual break-all text-sm text-[var(--ink)]">{pageLabel}</div>
             </div>
           </div>
-      </section>
+        </section>
 
-      <div className="xl:col-span-7 xl:col-start-5">
-        <RitualReveal lines={ritualPassage} />
+        <div className="xl:col-span-7 xl:col-start-5">
+          <RitualReveal lines={ritualPassage} />
+        </div>
       </div>
     </div>
   );
