@@ -84,7 +84,7 @@ export async function loadRuntimeLexicon() {
     return loadPromise;
   }
 
-  loadPromise = fetch("/db/example-lexicon.json", { cache: "force-cache" })
+  loadPromise = fetch(`${import.meta.env.BASE_URL}db/example-lexicon.json`, { cache: "force-cache" })
     .then(async (response) => {
       if (!response.ok) {
         throw new Error(`Lexicon request failed with ${response.status}`);
@@ -107,5 +107,3 @@ export async function loadRuntimeLexicon() {
 
   return loadPromise;
 }
-
-
