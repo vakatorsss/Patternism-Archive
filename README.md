@@ -1,6 +1,6 @@
-# The Infinite Book
+# The Patternism Archive
 
-The Infinite Book is a responsive React + TypeScript + Tailwind frontend for a fictional philosophical religion called Patternism. The interface treats the site like a sacred digital archive split into distinct routes: a homepage, a rules page, a finder page, and a main text page whose page address is embedded in the URL.
+The Patternism Archive is a responsive React + TypeScript + Tailwind frontend for a fictional philosophical religion called Patternism. The interface treats the site like a sacred digital archive split into distinct routes: a homepage, a rules page, a finder page, and a main text page whose page address is embedded in the URL.
 
 ## Experience Direction
 
