@@ -1,0 +1,251 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --surface: rgba(15, 15, 15, 0.55);
+  --surface-elevated: rgba(18, 18, 18, 0.55);
+  --panel: transparent;
+  --panel-strong: rgba(74, 74, 74, 0.25);
+  --panel-muted: rgba(128, 128, 128, 0.15);
+  --border: rgba(74, 74, 74, 0.35);
+  --border-strong: rgba(115, 115, 115, 0.45);
+  --rule-soft: rgba(220, 220, 220, 0.03);
+  --ink: rgba(237, 237, 237, 0.65);
+  --ink-strong: rgba(255, 255, 255, 0.65);
+  --false-ink: rgba(255, 128, 128, 0.72);
+  --muted: rgba(184, 184, 184, 0.45);
+  --subtle: rgba(142, 142, 142, 0.45);
+  --accent: rgba(255, 255, 255, 0.65);
+  --scrollbar-track: color-mix(in srgb, var(--surface) 82%, transparent);
+  --scrollbar-thumb: color-mix(in srgb, var(--border-strong) 72%, transparent);
+  --scrollbar-thumb-hover: color-mix(in srgb, var(--ink) 40%, var(--border-strong) 60%);
+  --scrollbar-thumb-active: color-mix(in srgb, var(--ink-strong) 45%, var(--border-strong) 55%);
+}
+
+html[data-theme="white"] {
+  color-scheme: light;
+  --surface: rgba(247, 247, 247, 0.55);
+  --surface-elevated: rgba(247, 247, 247, 0.55);
+  --panel: transparent;
+  --panel-strong: rgba(178, 178, 178, 0.25);
+  --panel-muted: rgba(180, 180, 180, 0.15);
+  --border: rgba(178, 178, 178, 0.35);
+  --border-strong: rgba(125, 125, 125, 0.45);
+  --rule-soft: rgba(0, 0, 0, 0.015);
+  --ink: rgba(17, 17, 17, 0.65);
+  --ink-strong: rgba(0, 0, 0, 0.65);
+  --false-ink: rgba(176, 52, 52, 0.72);
+  --muted: rgba(85, 85, 85, 0.45);
+  --subtle: rgba(122, 122, 122, 0.45);
+  --accent: rgba(0, 0, 0, 0.65);
+}
+
+html[data-theme="archive"] {
+  color-scheme: light;
+  --surface: rgba(236, 231, 219, 0.55);
+  --surface-elevated: rgba(236, 231, 219, 0.55);
+  --panel: transparent;
+  --panel-strong: rgba(143, 136, 122, 0.25);
+  --panel-muted: rgba(143, 136, 122, 0.15);
+  --border: rgba(143, 136, 122, 0.35);
+  --border-strong: rgba(97, 90, 79, 0.45);
+  --rule-soft: rgba(30, 24, 14, 0.02);
+  --ink: rgba(23, 19, 13, 0.65);
+  --ink-strong: rgba(0, 0, 0, 0.65);
+  --false-ink: rgba(154, 65, 54, 0.72);
+  --muted: rgba(85, 77, 64, 0.45);
+  --subtle: rgba(122, 113, 99, 0.45);
+  --accent: rgba(23, 19, 13, 0.65);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--surface);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+*::-webkit-scrollbar {
+  width: 0.72rem;
+  height: 0.72rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+*::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background-clip: padding-box;
+  background-color: var(--scrollbar-thumb);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: var(--scrollbar-thumb-active);
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: "Times New Roman", Times, serif;
+  text-rendering: optimizeLegibility;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  background-image: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.mono-ritual {
+  font-family: "Courier New", Courier, monospace;
+}
+
+@layer components {
+  .archive-field {
+    background-image: none;
+    opacity: 0;
+  }
+
+  .archive-panel {
+    border: 0;
+    background: transparent;
+  }
+
+  .archive-panel-muted {
+    border: 0;
+    background: transparent;
+  }
+
+  .archive-panel-strong {
+    border: 0;
+    background: transparent;
+  }
+
+  .archive-kicker {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .archive-link {
+    border-bottom: 0;
+    transition: none;
+  }
+
+  .archive-button {
+    display: inline-flex;
+    min-height: auto;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    border: 1px solid var(--border);
+    background: rgba(100, 100, 100, 0.1);
+    color: var(--ink);
+    padding: 0.35rem 0.55rem;
+    text-decoration: none;
+    transition: none;
+  }
+
+  .archive-button-ghost {
+    background: transparent;
+  }
+
+  .archive-button-accent {
+    border-color: var(--border);
+  }
+
+  .archive-tag {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--border);
+    background: transparent;
+    padding: 0.35rem 0.45rem;
+    color: var(--muted);
+  }
+
+  .archive-input {
+    border: 1px solid var(--border);
+    background: rgba(100, 100, 100, 0.08);
+    color: var(--ink);
+    padding: 0.3rem 0.45rem;
+  }
+
+  .archive-input:focus {
+    outline: none;
+    border-color: var(--ink);
+  }
+
+  .archive-mode-button {
+    background: transparent;
+    color: var(--muted);
+    padding: 0.28rem 0.45rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: none;
+  }
+
+  .archive-mode-button[data-active="true"] {
+    color: var(--ink);
+    text-decoration: underline;
+  }
+
+  .archive-table {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .archive-table-row {
+    display: grid;
+    grid-template-columns: minmax(5.5rem, 7rem) 1fr;
+    gap: 1rem;
+    border-top: 1px solid var(--border);
+    padding: 0.55rem 0;
+  }
+
+  .archive-table-row:first-child {
+    border-top: 0;
+  }
+
+  .archive-seal text {
+    fill: currentColor;
+  }
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 20%, transparent);
+  color: var(--ink-strong);
+}
