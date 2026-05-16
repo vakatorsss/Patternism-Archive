@@ -105,51 +105,60 @@ export function BookReader({ address, onAddressChange, highlightedLine }: BookRe
       </div>
 
       <div className="xl:col-span-10 xl:col-start-2">
-        <div className="mb-3 flex flex-wrap items-center gap-2 text-sm text-[var(--muted)]">
+        {/* Page navigation */}
+        <div className="mb-3 flex gap-2 text-sm text-[var(--muted)]">
           <button
             type="button"
             onClick={() => shiftField("page", -1)}
-            className="archive-button mono-ritual text-[0.72rem] uppercase tracking-[0.08em]"
+            className="archive-button mono-ritual text-[0.72rem] uppercase tracking-[0.08em] flex-1 sm:flex-none"
           >
             Previous page
           </button>
           <button
             type="button"
             onClick={() => shiftField("page", 1)}
-            className="archive-button mono-ritual text-[0.72rem] uppercase tracking-[0.08em]"
+            className="archive-button mono-ritual text-[0.72rem] uppercase tracking-[0.08em] flex-1 sm:flex-none"
           >
             Next page
           </button>
+        </div>
 
-          <div className="ml-2 flex flex-wrap items-center gap-1 text-[0.62rem] uppercase tracking-[0.08em]">
+        {/* Series/Volume/Chapter controls */}
+        <div className="mb-3 grid grid-cols-1 gap-2 text-[0.62rem] uppercase tracking-[0.08em] sm:grid-cols-3">
+          <div className="flex items-center gap-1">
             <span className="archive-kicker">Series</span>
-            <button type="button" onClick={() => shiftField("series", -1)} className="archive-button mono-ritual px-2 py-1 text-[0.62rem]">Prev</button>
-            <button type="button" onClick={() => shiftField("series", 1)} className="archive-button mono-ritual px-2 py-1 text-[0.62rem]">Next</button>
-
-            <span className="archive-kicker ml-2">Volume</span>
-            <button type="button" onClick={() => shiftField("volume", -1)} className="archive-button mono-ritual px-2 py-1 text-[0.62rem]">Prev</button>
-            <button type="button" onClick={() => shiftField("volume", 1)} className="archive-button mono-ritual px-2 py-1 text-[0.62rem]">Next</button>
-
-            <span className="archive-kicker ml-2">Chapter</span>
-            <button type="button" onClick={() => shiftField("chapter", -1)} className="archive-button mono-ritual px-2 py-1 text-[0.62rem]">Prev</button>
-            <button type="button" onClick={() => shiftField("chapter", 1)} className="archive-button mono-ritual px-2 py-1 text-[0.62rem]">Next</button>
+            <button type="button" onClick={() => shiftField("series", -1)} className="archive-button mono-ritual px-2 py-1 text-[0.62rem] flex-1">Prev</button>
+            <button type="button" onClick={() => shiftField("series", 1)} className="archive-button mono-ritual px-2 py-1 text-[0.62rem] flex-1">Next</button>
           </div>
 
-          <input
-            type="text"
-            value={addressInput}
-            onChange={(event) => setAddressInput(event.target.value)}
-            onBlur={applyAddressInput}
-            onKeyDown={(event) => {
-              if (event.key === "Enter") {
-                event.preventDefault();
-                applyAddressInput();
-              }
-            }}
-            className="archive-input mono-ritual min-w-[13rem] text-sm tracking-[0.08em] text-[var(--ink)] md:text-base"
-            aria-label="Page address"
-          />
+          <div className="flex items-center gap-1">
+            <span className="archive-kicker">Volume</span>
+            <button type="button" onClick={() => shiftField("volume", -1)} className="archive-button mono-ritual px-2 py-1 text-[0.62rem] flex-1">Prev</button>
+            <button type="button" onClick={() => shiftField("volume", 1)} className="archive-button mono-ritual px-2 py-1 text-[0.62rem] flex-1">Next</button>
+          </div>
+
+          <div className="flex items-center gap-1">
+            <span className="archive-kicker">Chapter</span>
+            <button type="button" onClick={() => shiftField("chapter", -1)} className="archive-button mono-ritual px-2 py-1 text-[0.62rem] flex-1">Prev</button>
+            <button type="button" onClick={() => shiftField("chapter", 1)} className="archive-button mono-ritual px-2 py-1 text-[0.62rem] flex-1">Next</button>
+          </div>
         </div>
+
+        {/* Address input */}
+        <input
+          type="text"
+          value={addressInput}
+          onChange={(event) => setAddressInput(event.target.value)}
+          onBlur={applyAddressInput}
+          onKeyDown={(event) => {
+            if (event.key === "Enter") {
+              event.preventDefault();
+              applyAddressInput();
+            }
+          }}
+          className="archive-input mono-ritual w-full text-sm tracking-[0.08em] text-[var(--ink)] md:text-base mb-3"
+          aria-label="Page address"
+        />
 
         <div className="max-h-[70vh] overflow-y-auto pr-1">
           <ul>
