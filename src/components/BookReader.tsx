@@ -168,16 +168,16 @@ export function BookReader({ address, onAddressChange, highlightedLine }: BookRe
               aria-label={`Select ${line.addressLabel}`}
               className={`cursor-pointer border-t px-0 py-1.5 first:border-t-0 focus:outline-none ${line.address.line === highlightedLine ? "border-[var(--border-strong)] bg-[var(--panel-muted)]" : "border-[var(--border)]"}`}
             >
-              <div className="grid grid-cols-[2.4rem_1fr_auto] items-center gap-2 md:grid-cols-[3rem_1fr_auto] md:gap-3">
-                <div className={`mono-ritual text-[0.95rem] md:text-base ${truthIndexTone(line.truthIndex)}`}>
+              <div className="grid grid-cols-[2.4rem_1fr_2.5rem] items-start gap-1.5 md:grid-cols-[3rem_1fr_auto] md:gap-3 md:items-center">
+                <div className={`mono-ritual text-[0.95rem] md:text-base flex-shrink-0 ${truthIndexTone(line.truthIndex)}`}>
                   {Math.round(line.truthIndex).toString().padStart(2, "0")}
                 </div>
                 <ExpandableText
                   text={line.text}
-                  className={`text-[0.82rem] leading-4 md:text-[0.88rem] ${lineTextTone(line.truthIndex)}`}
+                  className={`text-[0.82rem] leading-4 md:text-[0.88rem] min-w-0 ${lineTextTone(line.truthIndex)}`}
                   maxLines={1}
                 />
-                <div className="mono-ritual whitespace-nowrap text-[0.68rem] tracking-[0.08em] text-[var(--muted)] md:text-[0.72rem]">
+                <div className="mono-ritual text-[0.68rem] tracking-[0.08em] text-[var(--muted)] md:text-[0.72rem] flex-shrink-0 text-right md:text-left">
                   {line.addressLabel}
                 </div>
               </div>
