@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 
 import { formatAddress, formatPageAddress, pageAddress, parseAddress, type BookAddress } from "../generation/bookAddress";
 import { generatePage, isFalseTruthIndex } from "../generation/scripture";
+import { ExpandableText } from "./ExpandableText";
 
 interface BookReaderProps {
   address: BookAddress;
@@ -171,7 +172,11 @@ export function BookReader({ address, onAddressChange, highlightedLine }: BookRe
                 <div className={`mono-ritual text-[0.95rem] md:text-base ${truthIndexTone(line.truthIndex)}`}>
                   {Math.round(line.truthIndex).toString().padStart(2, "0")}
                 </div>
-                <p className={`min-w-0 truncate text-[0.82rem] leading-4 md:text-[0.88rem] ${lineTextTone(line.truthIndex)}`}>{line.text}</p>
+                <ExpandableText
+                  text={line.text}
+                  className={`text-[0.82rem] leading-4 md:text-[0.88rem] ${lineTextTone(line.truthIndex)}`}
+                  maxLines={1}
+                />
                 <div className="mono-ritual whitespace-nowrap text-[0.68rem] tracking-[0.08em] text-[var(--muted)] md:text-[0.72rem]">
                   {line.addressLabel}
                 </div>
