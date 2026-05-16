@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 
 import { formatAddress, formatPageAddress, pageAddress, parseAddress, type BookAddress } from "../generation/bookAddress";
+import { cantorPairingAddress } from "../generation/cantorPairing";
 import { generatePage, isFalseTruthIndex } from "../generation/scripture";
 import { ExpandableText } from "./ExpandableText";
 
@@ -186,8 +187,13 @@ export function BookReader({ address, onAddressChange, highlightedLine }: BookRe
                   className={`text-[0.82rem] leading-4 md:text-[0.88rem] min-w-0 pr-2 md:pr-0 ${lineTextTone(line.truthIndex)}`}
                   maxLines={1}
                 />
-                <div className="mono-ritual text-[0.68rem] tracking-[0.08em] text-[var(--muted)] md:text-[0.72rem]">
-                  {line.addressLabel}
+                <div className="flex flex-col items-end gap-0.5">
+                  <div className="mono-ritual text-[0.68rem] tracking-[0.08em] text-[var(--muted)] md:text-[0.72rem]">
+                    {line.addressLabel}
+                  </div>
+                  <div className="mono-ritual text-[0.6rem] text-[var(--subtle)]">
+                    π:{cantorPairingAddress(line.address).toString()}
+                  </div>
                 </div>
               </div>
             </li>

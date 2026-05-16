@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import { cantorPairingAddress } from "../generation/cantorPairing";
 import { isFalseTruthIndex, type GeneratedLine } from "../generation/scripture";
 
 interface RitualRevealProps {
@@ -67,7 +68,10 @@ export function RitualReveal({ lines }: RitualRevealProps) {
                     );
                   })}
                 </p>
-                <p className="mono-ritual mt-1 break-all text-[0.68rem] uppercase tracking-[0.18em] text-[var(--muted)]">{line.addressLabel}</p>
+                <div className="mt-1 flex items-center justify-between gap-2">
+                  <p className="mono-ritual break-all text-[0.68rem] uppercase tracking-[0.18em] text-[var(--muted)]">{line.addressLabel}</p>
+                  <p className="mono-ritual text-[0.6rem] text-[var(--subtle)] whitespace-nowrap">π:{cantorPairingAddress(line.address).toString()}</p>
+                </div>
               </div>
             </div>
           );

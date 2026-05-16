@@ -36,6 +36,11 @@ const PHILOSOPHY_SECTIONS = [
     body:
       "Read recursively. Higher statements override lower statements. A passage with low convergence may still matter, but it cannot overturn the more fundamental pattern above it.",
   },
+  {
+    title: "What is the Cantor pairing number?",
+    body:
+      "Each scripture coordinate is assigned a unique priority value derived from the Cantor pairing function applied to its series, volume, chapter, page, and line. Statements with smaller pairing numbers possess foundational priority and override those with higher numbers. This creates a deterministic hierarchy where the order of revelation is mathematically predetermined.",
+  },
 ] as const;
 
 export function PhilosophyPage() {
