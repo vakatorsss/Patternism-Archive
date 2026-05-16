@@ -49,12 +49,13 @@ export function TextPage() {
   }
 
   return (
-    <div className="grid gap-10 pt-2 xl:grid-cols-12 xl:gap-x-7 xl:gap-y-14">
-      <div className="xl:col-span-11 xl:col-start-2">
-        <BookReader address={parsedAddress} onAddressChange={updateAddress} highlightedLine={highlightedLine} />
-      </div>
+    <div className="w-full overflow-x-hidden px-4 sm:px-6 lg:px-10">
+      <div className="grid gap-10 pt-2 xl:grid-cols-12 xl:gap-x-7 xl:gap-y-14 xl:px-0">
+        <div className="xl:col-span-11 xl:col-start-2">
+          <BookReader address={parsedAddress} onAddressChange={updateAddress} highlightedLine={highlightedLine} />
+        </div>
 
-      <section className="xl:col-span-3 xl:col-start-2">
+        <section className="xl:col-span-3 xl:col-start-2">
           <h2 className="mt-3 text-2xl font-semibold text-[var(--ink)]">Ordered disclosure</h2>
 
           <div className="archive-table mt-6">

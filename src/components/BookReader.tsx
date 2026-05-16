@@ -104,9 +104,9 @@ export function BookReader({ address, onAddressChange, highlightedLine }: BookRe
         </div>
       </div>
 
-      <div className="xl:col-span-10 xl:col-start-2">
+      <div className="w-full xl:col-span-10 xl:col-start-2">
         {/* Page navigation */}
-        <div className="mb-3 flex gap-2 text-sm text-[var(--muted)]">
+        <div className="mb-3 flex gap-2 overflow-x-auto text-sm text-[var(--muted)]">
           <button
             type="button"
             onClick={() => shiftField("page", -1)}
